@@ -1,0 +1,6 @@
+.footer {    
+    border-top: 1px solid #d5d5d5;
+}
+.status-container{
+    display: flex;
+}

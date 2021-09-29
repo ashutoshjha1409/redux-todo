@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
-import { StatusFilters } from "../../Utils/Constants";
+import { StatusFilters } from "../../utils/Constants";
 import "./Footer.css";
 
 const statusArr = Object.keys(StatusFilters);

@@ -1,10 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-const TodoList = (props) => {
+// const selectTodos = (state) => state.todos;
+
+const TodoList = () => {
+  const todos = useSelector((state) => state.todos);
+
   return (
-    <>
-      <h3>Todo List</h3>
-    </>
+    <ul className="todo-list">
+      {todos.map((todo) => (
+        <li key={todo.id}>{todo.text}</li>
+      ))}
+    </ul>
   );
 };
 

@@ -1,12 +1,18 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
-import { StatusFilters } from "../../utils/Constants";
+import { statusFilters } from "../../utils/Constants";
 import "./Footer.css";
 
-const statusArr = Object.keys(StatusFilters);
+const statusArr = Object.keys(statusFilters);
 
 const StatusFilter = (props) => {
+  const dispatch = useDispatch();
+  const handleStatusChange = (status) => {
+    dispatch({ type: "STATUS_FILTER_CHANGED", payload: status });
+  };
+
   return (
     <>
       <h3>Filter by status</h3>
@@ -17,7 +23,11 @@ const StatusFilter = (props) => {
           variant="text"
         >
           {statusArr.map((status) => (
-            <Button key={status} size="large">
+            <Button
+              key={status}
+              size="large"
+              onClick={() => handleStatusChange(status)}
+            >
               {status}
             </Button>
           ))}
